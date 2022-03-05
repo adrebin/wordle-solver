@@ -22,6 +22,25 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding-top: 48px;
+}
+
+.title-container {
+  display: flex;
+  margin-bottom: 36px;
+  justify-content: space-between;
+  width: calc(100% - 48px);
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.page-title {
+  text-align: center;
+}
+
+.clear-game,
+.spacer {
+  width: 100px;
 }
 
 .App-link {

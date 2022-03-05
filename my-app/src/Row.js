@@ -30,14 +30,35 @@ function Row(props) {
 	}
 
 	const handleSubmit = (e) => {
-    e.preventDefault()
-		// console.log("formData:", formData);
-		// console.log("formData1", formData.color1);
-		props.setRowData(props.rowNum, formData);
+    e.preventDefault();
+
+		const formattedData = {
+			1: {
+				value: formData.one.toLowerCase(),
+				color: formData.color1,
+			},
+			2: {
+				value: formData.two.toLowerCase(),
+				color: formData.color2,
+			},
+			3: {
+				value: formData.three.toLowerCase(),
+				color: formData.color3,
+			},
+			4: {
+				value: formData.four.toLowerCase(),
+				color: formData.color4,
+			},
+			5: {
+				value: formData.five.toLowerCase(),
+				color: formData.color5,
+			},
+		}
+
+		props.setRowData(props.rowNum, formattedData);
 	}
 
 	const handleOnChange = (e, name) => {
-		console.log(e.target.value, name);
 		setFormData({...formData, [name]: e.target.value.toUpperCase()});
 	}
 
