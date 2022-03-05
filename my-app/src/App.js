@@ -46,8 +46,6 @@ function App() {
       }
     }
 
-    console.log("regex", regex);
-    console.log("must_contain", must_contain);
     // get unique must_contains list in case duplicates
     must_contain = Array.from(new Set([...must_contain])).join("");
     return findAnagrams(letters, "^" + regex + "$", must_contain);
@@ -85,10 +83,6 @@ function App() {
     }
 
     const letters = getLetters(absolute_nots, regex_musts);
-    console.log("letters", letters);
-    console.log("regex_musts",regex_musts);
-    console.log("regex_nots", regex_nots);
-    console.log("absolute_nots", absolute_nots);
     setAnagrams([...getAnagrams(letters, regex_musts, regex_nots)]);
     setGameData(tempGameData);
   };
