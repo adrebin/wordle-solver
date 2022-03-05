@@ -112,7 +112,7 @@ function App() {
             Clear Game
           </button>
         </div>
-
+        <div className="solver-body">
         <Row
           setRowData={setRowData}
           rowNum={1}
@@ -137,10 +137,11 @@ function App() {
           setRowData={setRowData}
           rowNum={6}
         />
-
+        </div>
         <AnagramsList
           anagrams={anagrams}
         />
+        
       </div>
     </div>
   );
