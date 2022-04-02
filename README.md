@@ -16,3 +16,7 @@ A customized anagram solver specifically for Wordle puzzles
 - refactor for cleaner code
 - add "suggest next guess" feature (using remaining letters, etc)
     - ex: give a word with as many "no seen letters before" as possible
+
+
+
+[testing]
