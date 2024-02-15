@@ -12,6 +12,7 @@
 
 .row {
     padding-bottom: 10px;
+    white-space: nowrap;
 }
 
 input[type="text" i] {
