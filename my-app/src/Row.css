@@ -12,7 +12,6 @@
 
 .row {
     padding-bottom: 10px;
-    white-space: nowrap;
 }
 
 input[type="text" i] {
@@ -22,12 +21,12 @@ input[type="text" i] {
     font-weight: bold;
     font-size: 16px;
     line-height: 24px;
-    /* border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px; */
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
     border: none;
     position: relative;
     vertical-align: top;
-    -webkit-border-radius: 0px 0px 0px 0px;
+    -webkit-border-radius: 8px 0px 0px 8px;
     padding: 0px;
 }
 
@@ -38,13 +37,13 @@ input[type="button" i] {
     /* top: 2px; */
     height: 28px;
     width: 20px;
-    /* border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px; */
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
     border: none;
     background-color: white;
     -webkit-appearance: none !important;
     -moz-appearance: none !important;
     appearance: none !important;
-    -webkit-border-radius: 0px 0px 0px 0px;
+    -webkit-border-radius: 0px 8px 8px 0px;
     padding: 0px;
 }
