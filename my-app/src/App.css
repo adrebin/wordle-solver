@@ -38,12 +38,14 @@
   text-align: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .hover-tooltip {
   font-size: calc(1px + 2vmin);
-  cursor: help; /* Changes the cursor to a question mark*/
-  color:deepskyblue;
+  cursor: help;
+  color:white;
+  max-width: 50%
 }
 
 .clear-game,
