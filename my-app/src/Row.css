@@ -10,6 +10,10 @@
     background-color: green;
 }
 
+.row {
+    padding-bottom: 10px;
+}
+
 input[type="text" i] {
     width: 30px;
     text-align: center;
