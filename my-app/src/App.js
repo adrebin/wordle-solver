@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { findAnagrams } from './anagram';
 import Row from './Row';
 import AnagramsList from './AnagramsList';
@@ -14,30 +14,32 @@ function App() {
     6: {},
   });
 
+  const [solverKey, setSolverKey] = useState(1);
+
   const [anagrams, setAnagrams] = useState();
 
   const getLetters = (absolute_nots, regex_musts) => {
     // remove all "gray" (absolute nots) letters from the alphabet
     let letters = "abcdefghijklmnopqrstuvwxyz";
     let difference = [...absolute_nots.join("")].filter(x => ![...regex_musts.join("")].includes(x));
-    for(let l = 0; l < difference.length; l++){
+    for (let l = 0; l < difference.length; l++) {
       letters = letters.replace(difference[l], "");
     }
     return letters;
   }
-  
+
   const getAnagrams = (letters, regex_musts, regex_nots) => {
     // build up regex + must contains list
     // by condensing each column into regex
     let regex = "";
     let must_contain = ""
-    for (let s = 0; s < 5; s++){
+    for (let s = 0; s < 5; s++) {
       must_contain = must_contain + regex_nots[s];
-      if(regex_musts[s]){
+      if (regex_musts[s]) {
         //all greens 
         regex = regex + "[" + regex_musts[s] + "]";
         must_contain = must_contain + regex_musts[s];
-      } else if(regex_nots[s] != ""){
+      } else if (regex_nots[s] != "") {
         // all yellows
         regex = regex + "[^" + regex_nots[s] + "]";
       } else {
@@ -52,7 +54,7 @@ function App() {
   }
 
   const setRowData = (row, data) => {
-    const tempGameData = {...gameData, [row]: data};
+    const tempGameData = { ...gameData, [row]: data };
 
     // letters that are grey
     // each entry here represents the concatenation of the column
@@ -64,11 +66,11 @@ function App() {
     // each entry here represents the concatenation of the column
     let regex_musts = [null, null, null, null, null];
     // iterate through each row
-    for(let i = 1; i <= 6; i++){
+    for (let i = 1; i <= 6; i++) {
       let rowData = tempGameData[i];
-      if(Object.keys(rowData).length){
+      if (Object.keys(rowData).length) {
         for (const [key, value] of Object.entries(rowData)) {
-          switch(value.color) {
+          switch (value.color) {
             case "gray":
               absolute_nots[key - 1] = absolute_nots[key - 1] + value.value;
               break;
@@ -86,7 +88,7 @@ function App() {
     setAnagrams([...getAnagrams(letters, regex_musts, regex_nots)]);
     setGameData(tempGameData);
   };
-  
+
   const clearGame = () => {
     console.log('Clearing', gameData)
     setAnagrams(null);
@@ -98,6 +100,7 @@ function App() {
       5: {},
       6: {},
     });
+    setSolverKey((currentKey) => currentKey + 1);
   }
 
   return (
@@ -112,36 +115,36 @@ function App() {
             Clear Game
           </button>
         </div>
-        <div className="solver-body">
-        <Row
-          setRowData={setRowData}
-          rowNum={1}
-        />
-        <Row
-          setRowData={setRowData}
-          rowNum={2}
-        />
-        <Row
-          setRowData={setRowData}
-          rowNum={3}
-        />
-        <Row
-          setRowData={setRowData}
-          rowNum={4}
-        />
-        <Row
-          setRowData={setRowData}
-          rowNum={5}
-        />
-        <Row
-          setRowData={setRowData}
-          rowNum={6}
-        />
+        <div className="solver-body" key={solverKey}>
+          <Row
+            setRowData={setRowData}
+            rowNum={1}
+          />
+          <Row
+            setRowData={setRowData}
+            rowNum={2}
+          />
+          <Row
+            setRowData={setRowData}
+            rowNum={3}
+          />
+          <Row
+            setRowData={setRowData}
+            rowNum={4}
+          />
+          <Row
+            setRowData={setRowData}
+            rowNum={5}
+          />
+          <Row
+            setRowData={setRowData}
+            rowNum={6}
+          />
         </div>
         <AnagramsList
           anagrams={anagrams}
         />
-        
+
       </div>
     </div>
   );
