@@ -16,31 +16,32 @@
 
 input[type="text" i] {
     width: 30px;
+    height: 26px;
     text-align: center;
     font-weight: bold;
     font-size: 16px;
     line-height: 24px;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
+    /* border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px; */
     border: none;
     position: relative;
     vertical-align: top;
-    -webkit-border-radius: 8px 0px 0px 8px;
+    -webkit-border-radius: 0px 0px 0px 0px;
 }
 
 input[type="button" i] {
     margin-right: 8px;
     vertical-align: top;
     position: relative;
-    top: 2px;
-    height: 26px;
+    /* top: 2px; */
+    height: 28px;
     width: 20px;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
+    /* border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px; */
     border: none;
     background-color: white;
     -webkit-appearance: none !important;
     -moz-appearance: none !important;
     appearance: none !important;
-    -webkit-border-radius: 0px 8px 8px 0px;
+    -webkit-border-radius: 0px 0px 0px 0px;
 }
