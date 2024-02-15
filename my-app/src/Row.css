@@ -36,4 +36,6 @@ input[type="button" i] {
     border: none;
     background-color: white;
     -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
