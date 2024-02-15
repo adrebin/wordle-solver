@@ -9,13 +9,11 @@ A customized anagram solver specifically for Wordle puzzles
 - cd my-app
 - npm start
 
+## To Deploy
+- cd my-app
+- npm run deploy
+- check that gh-pages branch has been updated. Will auto deploy - check Settings > Pages for latest deploy timestamp
 
-## Next Steps
-- add UI element for viewing anagram solutions (just now just console.log())
-- add "reset" button for new game
-- refactor for cleaner code
-- add "suggest next guess" feature (using remaining letters, etc)
-    - ex: give a word with as many "no seen letters before" as possible
 
 
 
