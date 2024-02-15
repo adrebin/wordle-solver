@@ -110,6 +110,7 @@ function App() {
           <div className="spacer" />
           <div className="page-title">
             Welcome to Teralina's Wordle Solver
+            <span class="hover-tooltip" title="Type a letter in the grey box, press the white button until the color matches the wordle screen. Press submit to calculate anagrams, press clear to reset.">(instructions)</span>
           </div>
           <button className="clear-game" onClick={clearGame}>
             Clear Game
