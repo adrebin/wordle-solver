@@ -25,6 +25,7 @@ input[type="text" i] {
     border: none;
     position: relative;
     vertical-align: top;
+    -webkit-border-radius: 8px 0px 0px 8px;
 }
 
 input[type="button" i] {
@@ -41,5 +42,5 @@ input[type="button" i] {
     -webkit-appearance: none !important;
     -moz-appearance: none !important;
     appearance: none !important;
-    -webkit-border-radius:0px;
+    -webkit-border-radius: 0px 8px 8px 0px;
 }
