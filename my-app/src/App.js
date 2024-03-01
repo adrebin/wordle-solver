@@ -21,7 +21,9 @@ function App() {
   const getLetters = (absolute_nots, regex_musts) => {
     // remove all "gray" (absolute nots) letters from the alphabet
     let letters = "abcdefghijklmnopqrstuvwxyz";
-    let difference = [...absolute_nots.join("")].filter(x => ![...regex_musts.join("")].includes(x));
+    // find all "gray" (absolute nots) that are also greens -> these are technically allowed!
+    let fake_grays = [...absolute_nots.join("")].filter(x => [...regex_musts.join("")].includes(x));
+    let difference = [...absolute_nots.join("")].filter(x => ![...regex_musts.join("")].includes(x) && !fake_grays.includes(x));
     for (let l = 0; l < difference.length; l++) {
       letters = letters.replace(difference[l], "");
     }
@@ -69,9 +71,25 @@ function App() {
     for (let i = 1; i <= 6; i++) {
       let rowData = tempGameData[i];
       if (Object.keys(rowData).length) {
+        // find all the colors for each letter in the row
+        // to weed out fake grays due to duplicate letters
+        const letterToColor = {};
+        for (const val of Object.values(rowData)) {
+          if (Object.keys(letterToColor).includes(val.value)) {
+            letterToColor[val.value].push(val.color);
+          } else {
+            letterToColor[val.value] = [val.color];
+          }
+        }
+
         for (const [key, value] of Object.entries(rowData)) {
           switch (value.color) {
             case "gray":
+              if (letterToColor[value.value].includes('yellow') || letterToColor[value.value].includes('green')) {
+                // indicates this is a fake gray - it is yellow or green elsewhere in the row
+                // and we can't exclude the letter yet
+                break;
+              }
               absolute_nots[key - 1] = absolute_nots[key - 1] + value.value;
               break;
             case "yellow":
