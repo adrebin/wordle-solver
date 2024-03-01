@@ -14,7 +14,7 @@ A customized anagram solver specifically for Wordle puzzles
 - npm run deploy
 - check that gh-pages branch has been updated. Will auto deploy - check Settings > Pages for latest deploy timestamp
 
-
-
-
-[testing]
+## To Run Tests
+- cd my-app
+- npm test
+- note that console.log() works in tests
